@@ -130,7 +130,7 @@ int main()
 
 	command.windowcheck(command.creaturewindow, window, command.windowName);
 
-	twitch.send("PRIVMSG #" + Channelname + ":" + Username + " Initialised\r\n");
+	twitch.send("PRIVMSG #" + Channelname + " :" + Username + " Initialised\r\n");
 
 	while (1)
 	{

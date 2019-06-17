@@ -11,10 +11,11 @@ public:
 
 
 
-	void windowcheck(HWND creaturewindow, std::string window, LPCSTR& windowName);
+	void windowcheck(HWND& creaturewindow, std::string window, LPCSTR& windowName);
 	void processCommands(std::string& reply, HWND& creaturewindow, INPUT& ip, std::vector<WPARAM>& wparam, std::vector<LPARAM>& lparam);
 
-	HWND creaturewindow = FindWindow(NULL, windowName);
+	HWND creaturewindow;
+
 	INPUT ip;
 
 	LPCSTR windowName;

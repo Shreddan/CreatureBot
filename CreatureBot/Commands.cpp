@@ -2,26 +2,26 @@
 
 Commands::Commands()
 {
-	this->windowName = NULL;
+	this->creaturewindow = NULL;
 }
 
 Commands::~Commands()
 {
 }
 
-void Commands::windowcheck(HWND creaturewindow, std::string window, LPCSTR& windowName)
+void Commands::windowcheck(HWND& creaturewindow, std::string window, LPCSTR& windowName)
 {
 	windowName = window.c_str();
+	creaturewindow = FindWindow(NULL, windowName);
 	std::string windowcheck;
 
-	if (creaturewindow == NULL)
+	if (creaturewindow != NULL)
 	{
-		windowcheck = "Window Not Found!";
+		windowcheck = "Window Found!";
 	}
 	else
 	{
-		windowcheck = "Window Found!";
-
+		windowcheck = "Window Not Found!";
 	}
 
 	std::cout << windowcheck << std::endl;
