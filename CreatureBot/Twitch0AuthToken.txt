@@ -1,2 +1,2 @@
-oauth:
-
+oauth:<add your own bots Oauth code here
+Add your bots username here
