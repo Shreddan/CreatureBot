@@ -1,2 +1,2 @@
-oauth:9twq6jod0jnl7stb52tp09cas74l4e
-c3dsbot
+oauth:
+
