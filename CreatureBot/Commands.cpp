@@ -2,14 +2,16 @@
 
 Commands::Commands()
 {
+	this->windowName = NULL;
 }
 
 Commands::~Commands()
 {
 }
 
-void Commands::windowcheck(HWND creaturewindow)
+void Commands::windowcheck(HWND creaturewindow, std::string window, LPCSTR& windowName)
 {
+	windowName = window.c_str();
 	std::string windowcheck;
 
 	if (creaturewindow == NULL)

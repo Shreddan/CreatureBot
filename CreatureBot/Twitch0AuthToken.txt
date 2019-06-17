@@ -1,2 +1,4 @@
-oauth:<add your own bots Oauth code here
-Add your bots username here
+oauth:9twq6jod0jnl7stb52tp09cas74l4e
+c3dsbot
+danicron5
+Docking Station - Engine 2.296 B195 - Autokill enabled

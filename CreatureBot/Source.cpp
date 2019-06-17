@@ -51,9 +51,11 @@ int main()
 	SOCKET ConnectSocket = INVALID_SOCKET;
 	addrinfo hints = {};
 	addrinfo* result;
-	std::ifstream fileIn("Twitch0AuthToken.txt", std::ios::in | std::ios::binary);
+	std::ifstream fileIn("Twitch0AuthToken.txt");
 	std::string OAuthToken;
 	std::string Username;
+	std::string Channelname;
+	std::string window;
 	std::string send;
 
 	Commands command;
@@ -63,10 +65,13 @@ int main()
 
 	if (fileIn.is_open())
 	{
-		fileIn >> OAuthToken;
-		fileIn >> Username;
+		std::getline(fileIn, OAuthToken , '\n');
+		std::getline(fileIn, Username, '\n');
+		std::getline(fileIn, Channelname, '\n');
+		std::getline(fileIn, window, '\n');
 		fileIn.close();
 	}
+
 
 	if (WSAStartup(MAKEWORD(2, 2), &wsadata) != 0)
 	{
@@ -116,16 +121,16 @@ int main()
 	twitch.send("NICK " + Username + "\r\n");
 
 
-	twitch.send("JOIN #danicron5\r\n");
+	twitch.send("JOIN #" + Channelname + "\r\n");
 	
 
 	twitch.send("CAP REQ :twitch.tv/membership\r\n");
 
 	twitch.receive();
 
-	command.windowcheck(command.creaturewindow);
+	command.windowcheck(command.creaturewindow, window, command.windowName);
 
-	twitch.send("PRIVMSG #danicron5 :CreatureBot Initialised\r\n");
+	twitch.send("PRIVMSG #" + Channelname + ":" + Username + " Initialised\r\n");
 
 	while (1)
 	{
@@ -139,7 +144,7 @@ int main()
 			std::cout << accumulator << std::endl;
 			if (accumulator >= 1)
 			{
-				twitch.send("PRIVMSG #danicron5 :Check below for a list of Usable Commands!\r\n");
+				twitch.send("PRIVMSG #" + Channelname +":Check below for a list of Usable Commands!\r\n");
 				accumulator = 0;
 				continue;
 			}

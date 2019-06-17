@@ -11,11 +11,13 @@ public:
 
 
 
-	void windowcheck(HWND creaturewindow);
+	void windowcheck(HWND creaturewindow, std::string window, LPCSTR& windowName);
 	void processCommands(std::string& reply, HWND& creaturewindow, INPUT& ip, std::vector<WPARAM>& wparam, std::vector<LPARAM>& lparam);
 
-	HWND creaturewindow = FindWindow(NULL, "Docking Station - Engine 2.296 B195 - Autokill enabled");
+	HWND creaturewindow = FindWindow(NULL, windowName);
 	INPUT ip;
+
+	LPCSTR windowName;
 
 	std::vector<WPARAM> wparam;
 	std::vector<LPARAM> lparam;
