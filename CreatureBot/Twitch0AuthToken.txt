@@ -1,4 +1,4 @@
-oauth:9twq6jod0jnl7stb52tp09cas74l4e
-c3dsbot
-danicron5
-Docking Station - Engine 2.296 B195 - Autokill enabled
+oauth here
+bot username here(lowercase)
+channel name here (your discord username(lowercase))
+window name exactly as the titlebar says 
